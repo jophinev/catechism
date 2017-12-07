@@ -1,0 +1,43 @@
+page-login {
+	background-color: #5d41a6;
+	.authContainer{
+		display: block;
+		width: 100%;
+		height:100%;
+		position:relative;
+		.verticalCenter{
+			//padding:0 3vw;
+			form{
+				.item-md{
+					padding:0;
+				}
+			}
+		}
+	}
+	.verticalCenter{
+		transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+		}
+
+
+}
+
+
+/* parent
+    display: inline-table;
+    width: 100%;
+    vertical-align: middle;
+    height: 100%;
+    position: relative;
+
+child
+    display: table-cell;
+    /* top: 50%; */
+    //vertical-align: middle;
+    /* margin-top: -141px; */
+    /* position: absolute; */
+    /* width: 100%; */
+   // height: 200px; */
