@@ -4,12 +4,25 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
+<!-- <ion-header>
   <ion-navbar>
-    <ion-title>home</ion-title>
-  </ion-navbar>
+    <button class="humburger" left (click)="utilityProvider.openMainMenu()" id="left-menu-btn">
+      <img src="assets/imgs/hamburger.svg" />
+    </button> -->
+    <!-- <div class="headTitle" text-center></div>
+    <button right class="headIconHldr" (click)="utilityProvider.openSettingMenu()" id="right-menu-btn">
+      <img src="assets/imgs/user-White.svg" />
+    </button> -->
+  <!-- </ion-navbar>
+</ion-header> -->
 
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
 </ion-header>
 
 

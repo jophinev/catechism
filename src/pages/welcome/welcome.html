@@ -1,0 +1,17 @@
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      L M C
+    </ion-card-header>
+    <ion-card-content>
+      <div class="center">
+        <button ion-button class="btnStyle_1" (click)="onParishUser()">Parish Member</button>
+        <button ion-button outline class="btnStyle_1" (click)="onGustUser()">Gust</button>
+      </div>
+      <ion-item style="width: 70%; margin-left:15%; margin-right: 15%">
+        <ion-label>Remember my choice</ion-label>
+        <ion-checkbox color="blue" checked="false" style="margin-right: 15px;" [(ngModel)]="rememberScreen" ></ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

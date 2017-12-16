@@ -18,7 +18,7 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, private dp: DataProvider) {
     this.authForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.pattern('[a-z0-9._]+@[A-Za-z0-9._-]+\\.[a-z]{2,3}')])],
-      parishId: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{4}')])],
+      parishId: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{6}')])],
       //parishId: ['', Validators.compose([Validators.required, Validators.pattern('^\d{4}')])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       cPassword: ['', Validators.compose([Validators.required, Validators.minLength(4)]), this.comparePassword]
@@ -48,7 +48,7 @@ export class RegisterPage {
       this.errorMessage = "successfully registred";
       window.setTimeout(() => {
         this.errorMessage = null;
-        this.navCtrl.setRoot("HomePage");
+        this.navCtrl.setRoot("VerifyEmailPage");
       }, 2000);
     }, (error) => {
       //this.resetForm(this.authForm);

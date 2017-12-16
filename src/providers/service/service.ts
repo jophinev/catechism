@@ -21,15 +21,58 @@ export class ServiceProvider {
 	public register(_param: any) {
 		return new Promise((resolve, reject) => {
 			Kinvey.User.signup({
+				email: _param.email,
 				username: _param.email,
-				password: _param.password,
-				parishId: _param.parishId
+				password: _param.password
 			}).then((user: Kinvey.User) => {
-					resolve(user);
+				resolve(user.data);
 			}).catch((error: Kinvey.BaseError) => {
-				 reject(error);
+				reject(error);
 			});
 		});
 	}
 
+	public login(_param: any) {
+		return new Promise((resolve, reject) => {
+			Kinvey.User.login(_param.email, _param.password)
+				.then((user: Kinvey.User) => {
+					resolve(user.data);
+				})
+				.catch((error: Kinvey.BaseError) => {
+					reject(error);
+				});
+		})
+	}
+
+	public logout(){
+		return new Promise((resolve, reject)=>{
+			Kinvey.User.logout().then(()=>{
+				resolve();
+			}, (error)=>{
+				reject();
+			})
+		})
+	}
+
+	public getActiveUser() {
+		if (Kinvey && Kinvey.User && Kinvey.User.getActiveUser()) {
+			return Kinvey.User.getActiveUser().data;
+		} else {
+			return null;
+		}
+	}
+
+	public getAllClData(_clName) {
+		let cEntities: any;
+		return new Promise((resolve, reject) => {
+			Kinvey.DataStore.collection(_clName).find()
+				.subscribe((entities: {}[]) => {
+					cEntities = entities && entities.length > 0 ? entities : null;
+				}, (error) => {
+					reject(error);
+				}, () => {
+					resolve(cEntities);
+				})
+		})
+	}
 }

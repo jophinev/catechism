@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import { ServiceProvider } from '../providers/service/service';
+import { UtilityProvider } from '../providers/utility/utility';
+
+//import {VerifyEmailPage} from "../pages/auth/verify-email/verify-email";
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { ServiceProvider } from '../providers/service/service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
-    ServiceProvider
+    ServiceProvider,
+    UtilityProvider
   ]
 })
 export class AppModule {}
