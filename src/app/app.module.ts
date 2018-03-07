@@ -1,39 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
-import { DataProvider } from '../providers/data/data';
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceProvider } from '../providers/service/service';
 import { UtilityProvider } from '../providers/utility/utility';
-
-//import {VerifyEmailPage} from "../pages/auth/verify-email/verify-email";
-
+import { AudioProvider } from '../providers/audio/audio';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    ListPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider,
     ServiceProvider,
-    UtilityProvider
+    UtilityProvider,
+    UtilityProvider,
+    ServiceProvider,
+    AudioProvider
   ]
 })
 export class AppModule {}
